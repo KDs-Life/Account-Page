@@ -1,0 +1,40 @@
+/* Stil für die Navigation-Bar */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  /* Stil für das Logo */
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Stil für die Navigationslinks */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Stil für einzelnen Navigationslink */
+  .nav-item {
+    font-size: 16px;
+  }
+  
+  /* Stil für Navigationslinks (Hover) */
+  .nav-item a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  
+  /* Stil für Navigationslinks (Hover) */
+  .nav-item a:hover {
+    color: #ff6600;
+  }
+  

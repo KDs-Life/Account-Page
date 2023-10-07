@@ -1,0 +1,62 @@
+body {
+  background-color: #333; /* Hintergrundfarbe des Body */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.create-account-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px; 
+  max-width: 800px;
+  padding: 20px;
+}
+
+input {
+  border: none; 
+  border-bottom: 2px solid #404040; 
+  padding: 10px;
+  margin: 10px 0;
+  width: 80%;
+  background-color: transparent; 
+  transition: border-bottom 0.3s ease-in-out; 
+  color: #9d9d9d; 
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #008628; 
+}
+
+.left {
+  flex: 1;
+  padding: 20px;
+}
+
+.middle {
+  border-left: 2px solid #ccc; 
+  height: 50vh; 
+}
+
+.right {
+  flex: 1;
+  padding: 20px;
+}
+
+
+button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #008628;
+}

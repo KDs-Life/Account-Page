@@ -1,6 +1,9 @@
 
 import './App.css';
 import CreateAccount from './components/CreateAccount';
+import NavBar from './components/Navigation/NavBar';
+
+
 
 
 function App() {
@@ -8,7 +11,9 @@ function App() {
 
   return (
     <>
+    <NavBar />
      <CreateAccount />
+
     </>
   )
 }

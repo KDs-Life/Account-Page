@@ -1,12 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import "./CreateAccount.css";
 
 function CreateAccount({ setAccounts }) {
   const [newAccount, setNewAccount] = useState({
     name: "",
-    first_name: "", 
+    first_name: "",
     email: "",
-    slogan: "",
+    password: "",
+    image: "",
   });
 
   const handleSubmit = (e) => {
@@ -21,7 +23,7 @@ function CreateAccount({ setAccounts }) {
           name: "",
           first_name: "",
           email: "",
-          slogan: "",
+          image: "",
         });
       })
       .catch((error) => {
@@ -34,40 +36,62 @@ function CreateAccount({ setAccounts }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={newAccount.name}
-        onChange={handleChange}
-        placeholder="Name"
-        required
-      />
-      <input
-        type="text"
-        name="first_name" 
-        value={newAccount.first_name}
-        onChange={handleChange}
-        placeholder="First Name"
-        required
-      />
-      <input
-        type="text"
-        name="email"
-        value={newAccount.email}
-        onChange={handleChange}
-        placeholder="E-Mail"
-        required
-      />
-      <input
-        type="text"
-        name="slogan"
-        value={newAccount.slogan}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit">Create Account</button>
-    </form>
+    <>
+      <div className="create-account-container">
+        <div className="left">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              value={newAccount.name}
+              onChange={handleChange}
+              placeholder="Name"
+              required
+            />
+            <input
+              type="text"
+              name="first_name"
+              value={newAccount.first_name}
+              onChange={handleChange}
+              placeholder="First Name"
+              required
+            />
+            <input
+              type="text"
+              name="email"
+              value={newAccount.email}
+              onChange={handleChange}
+              placeholder="E-Mail"
+              required
+            />
+
+            <input
+              type="password"
+              name="password"
+              value={newAccount.password}
+              onChange={handleChange}
+              placeholder="Password"
+              required
+            />
+            <input
+              type="file"
+              accept="image/*"
+              name="image"
+              onChange={handleSubmit}
+              placeholder= "Picture"
+            />
+
+            <button type="submit">Create Account</button>
+          </form>
+        </div>
+        <div className="middle"></div> {/* LINE */}
+        <div className="right">
+          {/* Bild oder Ihre Animation einfügen */}
+          {/* Zum Beispiel: */}
+          <img src="path/to/your/image.png" alt="Your Image" />
+        </div>
+      </div>
+    </>
   );
 }
 
