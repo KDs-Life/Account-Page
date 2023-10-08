@@ -21,7 +21,7 @@ const accountSchema = new mongoose.Schema({
   },
   image: {
     type: String, // Speichern Sie den Dateipfad zum hochgeladenen Bild.
-  }
+  },
 });
 
 export default mongoose.model("Account", accountSchema);

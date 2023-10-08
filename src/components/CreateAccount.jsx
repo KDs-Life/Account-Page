@@ -14,7 +14,7 @@ function CreateAccount({ setAccounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("DEINE_API_URL_HIER", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
+      .post("mongodb+srv://MacBook:K3PdhoFjNT7wzFXq@cluster0.ryjkqss.mongodb.net/?retryWrites=true&w=majority", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
       .then((response) => {
         console.log("Great:", response.data);
         alert("New Account created, welcome Padawan!");
@@ -22,7 +22,7 @@ function CreateAccount({ setAccounts }) {
         setNewAccount({
           name: "",
           first_name: "",
-          email: "",
+          email: "n",
           image: "",
         });
       })
