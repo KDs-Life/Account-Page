@@ -14,7 +14,10 @@ function CreateAccount({ setAccounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("mongodb+srv://MacBook:K3PdhoFjNT7wzFXq@cluster0.ryjkqss.mongodb.net/?retryWrites=true&w=majority", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
+      .post(
+        "mongodb+srv://MacBook:K3PdhoFjNT7wzFXq@cluster0.ryjkqss.mongodb.net/?retryWrites=true&w=majority",
+        newAccount
+      ) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
       .then((response) => {
         console.log("Great:", response.data);
         alert("New Account created, welcome Padawan!");
@@ -57,7 +60,7 @@ function CreateAccount({ setAccounts }) {
               required
             />
             <input
-              type="text"
+              type="email" // Ändern Sie den Typ auf "email", um die Eingabe als E-Mail zu validieren
               name="email"
               value={newAccount.email}
               onChange={handleChange}
@@ -78,7 +81,7 @@ function CreateAccount({ setAccounts }) {
               accept="image/*"
               name="image"
               onChange={handleSubmit}
-              placeholder= "Picture"
+              placeholder="Picture"
             />
 
             <button type="submit">Create Account</button>
