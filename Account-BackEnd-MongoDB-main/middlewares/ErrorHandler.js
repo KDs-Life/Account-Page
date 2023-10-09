@@ -1,4 +1,3 @@
-// Die errorHandler-Funktion wird definiert und exportiert.
 export const errorHandler = (error, req, res, next) => {
   // Hier wird der HTTP-Statuscode festgelegt. 
   // Wenn der Fehler einen eigenen Statuscode hat, wird dieser verwendet, 
@@ -15,4 +14,5 @@ export const errorHandler = (error, req, res, next) => {
   // und als Antwort wird ein JSON-Objekt gesendet, das eine Nachricht (message) enthält,
   // die den Fehler beschreibt.
   res.status(statusCode).json({ message: message });
+
 };
