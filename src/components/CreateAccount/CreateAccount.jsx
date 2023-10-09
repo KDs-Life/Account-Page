@@ -87,7 +87,9 @@ function CreateAccount({ setAccounts }) {
             <button type="submit">Create Account</button>
           </form>
         </div>
-        <div className="middle"></div> {/* LINE */}
+
+        {/* LINE Mitte */}
+        <div className="middle"></div> 
         <div className="right">
           {/* Bild oder Ihre Animation einfügen */}
           {/* Zum Beispiel: */}
