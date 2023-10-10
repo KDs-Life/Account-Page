@@ -15,7 +15,7 @@ function CreateAccount({ setAccounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/accounts", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
+      .post("https://account-page.onrender.com/accounts", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
       .then((response) => {
         console.log("Great:", response.data);
         alert("New Account created, welcome Padawan!");
@@ -23,7 +23,7 @@ function CreateAccount({ setAccounts }) {
         setNewAccount({
           name: "",
           first_name: "",
-          email: "n",
+          email: "",
           image: "",
         });
       })
