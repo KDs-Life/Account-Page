@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import axios from "axios";
 import "./CreateAccount.css";
@@ -14,10 +15,7 @@ function CreateAccount({ setAccounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(
-        "mongodb+srv://MacBook:K3PdhoFjNT7wzFXq@cluster0.ryjkqss.mongodb.net/?retryWrites=true&w=majority",
-        newAccount
-      ) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
+      .post("http://localhost:8000/accounts", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
       .then((response) => {
         console.log("Great:", response.data);
         alert("New Account created, welcome Padawan!");
@@ -77,23 +75,21 @@ function CreateAccount({ setAccounts }) {
               required
             />
             <input
-              type="file"
-              accept="image/*"
+              type="text"
               name="image"
-              onChange={handleSubmit}
-              placeholder="Picture"
+              value={newAccount.image}
+              onChange={handleChange}
+              placeholder="Image URL"
             />
 
             <button type="submit">Create Account</button>
           </form>
         </div>
-
-        {/* LINE Mitte */}
-        <div className="middle"></div> 
+        <div className="middle"></div> {/* LINE */}
         <div className="right">
           {/* Bild oder Ihre Animation einfügen */}
           {/* Zum Beispiel: */}
-          <img src="path/to/your/image.png" alt="Your Image" />
+          <img src="https://picsum.photos/id/237/536/354" alt="Your Image" />
         </div>
       </div>
     </>

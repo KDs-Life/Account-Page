@@ -1,4 +1,4 @@
-import Account from "../models/Account.js"; 
+import Account from "../models/Account.js";
 
 // Definieren einer Funktion, um alle Konten abzurufen
 export const getAllAccounts = async (req, res, next) => {
@@ -41,7 +41,7 @@ export const getAccountById = async (req, res, next) => {
 };
 
 export const addNewAccount = async (req, res, next) => {
-  const { name, first_name, email, image } = req.body;
+  const { name, first_name, email, password, image } = req.body;
 
   try {
     // Erstelle ein neues Account-Objekt mit den übergebenen Daten
@@ -49,6 +49,7 @@ export const addNewAccount = async (req, res, next) => {
       name,
       first_name,
       email,
+      password,
       image, // Hier verwenden Sie "image" anstelle von "Image"
     });
 
@@ -66,13 +67,13 @@ export const addNewAccount = async (req, res, next) => {
 
 export const updateAccount = async (req, res, next) => {
   const { id } = req.params; // Die ID des zu aktualisierenden Kontos aus den Anfrageparametern erhalten
-  const { name, first_name, email, image } = req.body; // Die zu aktualisierenden Daten aus dem Anfragekörper erhalten
+  const { name, first_name, email, password, image } = req.body; // Die zu aktualisierenden Daten aus dem Anfragekörper erhalten
 
   try {
     // Versuche, das Konto anhand seiner ID zu aktualisieren
     const updatedAccount = await Account.findByIdAndUpdate(
       id,
-      { name, first_name, email, image }, // Die zu aktualisierenden Daten
+      { name, first_name, email, password, image }, // Die zu aktualisierenden Daten
       { new: true } // Option, um das aktualisierte Konto zurückzugeben
     );
 
@@ -86,8 +87,6 @@ export const updateAccount = async (req, res, next) => {
     next(error);
   }
 };
-
-
 
 export const addTagToAccount = async (req, res, next) => {
   const { id } = req.params;
