@@ -10,14 +10,21 @@ const accountSchema = new mongoose.Schema({
     unique: true, // Jeder Name sollte einmalig sein.
     trim: true, // Wir entfernen Leerzeichen am Anfang und Ende des Namens.
   },
-  // Der Vorname 
+  // Der Vorname
   first_name: {
     type: String,
     required: [true, "First Name is required"],
     unique: true, // Jeder Vorname sollte einmalig sein.
     trim: true, // Wir entfernen Leerzeichen am Anfang und Ende des Vornamens.
   },
-  // Die E-Mail 
+  // Das Passwort wird hinzugefügt und zensiert.
+  password: {
+    type: String,
+    required: [true, "Password is required"],
+    // Hier könntest du weitere Anforderungen an das Passwort hinzufügen, z. B. Mindestlänge oder Komplexität.
+    select: false, // Das Passwort wird standardmäßig nicht aus der Datenbank abgerufen.
+  },
+  // Die E-Mail
   email: {
     type: String,
     required: [true, "Email is required"],
@@ -25,7 +32,8 @@ const accountSchema = new mongoose.Schema({
     trim: true, // Wir entfernen Leerzeichen am Anfang und Ende der E-Mail.
 
     // Hier um sicherzustellen, dass die E-Mail wirklich ist.
-    validate: { //validate-Option in der Mongoose-Bibliothek 
+    validate: {
+      //validate-Option in der Mongoose-Bibliothek
       validator: function (value) {
         // Wir benutzen einen besonderen Code (Regulärer Ausdruck), um die E-Mail zu überprüfen.
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
