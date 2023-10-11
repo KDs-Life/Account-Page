@@ -1,22 +1,33 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import "./ChatWindow.css";
 
 function ChatWindow() {
   const [newMessage, setNewMessage] = useState("");
-  const [chatMessages, setChatMessages] = useState([
-    {
-      user: "Du",
-      message: "Hallo!",
-    },
-    {
-      user: "Anderer Benutzer",
-      message: "Hi, wie geht's?",
-    },
-  ]);
-
+  const [chatMessages, setChatMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
-
   const chatWindowRef = useRef(null);
+
+  useEffect(() => {
+    axios.get("https://account-page.onrender.com/accounts").then((response) => {
+      const users = response.data;
+      // Erstelle ein Mapping für Benutzer-spezifische Nachrichten
+      const userSpecificMessages = {
+        Khalid: "Hallo Leute, wie geht's?",
+        Spiderman: "Hey He-Man und Chat, bereit für Abenteuer?",
+        Someone: "Hallo s, was hast du vor?",
+        "Master of the Universe": "Hallo Spiderman & Khalid, was geht?",
+        // Füge hier weitere Benutzer hinzu und definiere ihre Nachrichten
+      };
+
+      const messages = users.map((user) => ({
+        user: user.name,
+        message: userSpecificMessages[user.name] || "Hey!",
+        avatar: user.image, // Hier fügen wir das Avatar-Feld hinzu
+      }));
+      setChatMessages(messages);
+    });
+  }, []);
 
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return;
@@ -53,7 +64,7 @@ function ChatWindow() {
             key={index}
             className={`user-info ${message.user === "Du" ? "mine" : "yours"}`}>
             <img
-              src="https://a.storyblok.com/f/178900/2880x1620/1ac38ba19d/8aa767c3aa80a9185f7614adbba3982d1625731728_main.jpg/m/filters:quality(95)format(webp)"
+              src={message.avatar} // Hier verwenden wir das Avatar-Feld aus den API-Daten
               alt="Avatar"
             />
             <div className="user-name">{message.user}</div>
