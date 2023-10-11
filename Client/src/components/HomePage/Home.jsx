@@ -1,7 +1,11 @@
 
+import ChatWindow from "../Chat/ChatWindow"
+
 function Home() {
   return (
-    <div>Home</div>
+    <>
+    <ChatWindow />
+    </>
   )
 }
 
