@@ -6,7 +6,7 @@
   padding: 10px;
   height: 500px;
   min-width: 100px;
-  overflow-y: scroll;
+  overflow-y: scroll; /* Behalte diese Eigenschaft bei, um das Scrollen zu aktivieren */
   border-radius: 8px;
 }
 
@@ -14,6 +14,8 @@
   align-self: flex-end;
   text-align: right;
   margin-bottom: 10px;
+  border-bottom: #f77 1px solid;
+  width: 40%;
 }
 
 .mine .message {
@@ -22,11 +24,13 @@
   border-radius: 5px;
   padding: 5px 10px;
   margin: 5px;
+  word-break: break-all;
 }
 
 .yours {
   align-self: flex-start;
   margin-bottom: 10px;
+  border-bottom: #f77 1px solid;
 }
 
 .yours .message {
@@ -35,20 +39,21 @@
   border-radius: 5px;
   padding: 5px 10px;
   margin: 5px;
+  width: 40%;
 }
 
 .user-info {
   display: flex;
-  align-items: center;
+  align-items: first baseline;
   flex-direction: column;
   border-radius: 1px solid #f81515;
   margin-bottom: 5px;
 }
 
 .user-info img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 100px;
+  height: 80px;
+  border-radius: 10%;
   margin-right: 10px;
 }
 .new-message {
@@ -56,6 +61,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+ 
 }
 
 .new-message input {
@@ -64,6 +70,7 @@
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
+  
 }
 
 button {

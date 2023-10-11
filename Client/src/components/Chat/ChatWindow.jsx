@@ -17,6 +17,7 @@ function ChatWindow() {
         Spiderman: "Hey He-Man und Chat, bereit für Abenteuer?",
         Someone: "Hallo s, was hast du vor?",
         "Master of the Universe": "Hallo Spiderman & Khalid, was geht?",
+        "Son Goku": "Hallo, ich bin Son Goku! Freut mich euch kennenzulernen!,",
         // Füge hier weitere Benutzer hinzu und definiere ihre Nachrichten
       };
 
