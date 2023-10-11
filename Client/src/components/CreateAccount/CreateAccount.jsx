@@ -18,7 +18,7 @@ function CreateAccount({ setAccounts }) {
       .post("https://account-page.onrender.com/accounts", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
       .then((response) => {
         console.log("Great:", response.data);
-        alert("New Account created, welcome Padawan!");
+        alert("New Account created, welcome Hero!");
         setAccounts((prevAccounts) => [...prevAccounts, response.data]);
         setNewAccount({
           name: "",

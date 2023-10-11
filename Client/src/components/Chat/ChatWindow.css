@@ -77,8 +77,8 @@ button {
 }
 .typing-indicator-container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin-top: 10px;
   background: transparent;
   height: 40px;
   animation: fade-in 0.5s linear forwards;
@@ -89,14 +89,15 @@ button {
   width: 12px;
   height: 12px;
   background: #07f;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   margin: 0 4px;
   animation: typing 1.5s infinite;
   transform: translateY(0);
 }
 
 @keyframes typing {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
     background: #07f;
   }

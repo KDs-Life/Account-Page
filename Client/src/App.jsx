@@ -6,6 +6,7 @@ import Home from "./components/HomePage/Home.jsx";
 function App() {
   return (
     <>
+    
       <NavBar />
       <Home />
       <CreateAccount />
