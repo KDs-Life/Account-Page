@@ -43,8 +43,8 @@ function CreateAccount({ setAccounts, isLoggedIn, toggleLogin }) {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="first_name"
-              value={newAccount.first_name}
+              name="name"
+              value={newAccount.name}
               onChange={handleChange}
               placeholder="Name"
               required
