@@ -15,7 +15,7 @@ function CreateAccount({ setAccounts, isLoggedIn, toggleLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8000/accounts', newAccount) // hier nach dem repo update: https://account-page.onrender.com/accounts
+      .post('https://account-page.onrender.com/accounts', newAccount) // hier nach dem repo update: https://account-page.onrender.com/accounts
       .then((response) => {
         console.log('Great:', response.data);
         alert('New Account created, welcome Hero!');
