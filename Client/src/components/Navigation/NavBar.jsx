@@ -24,6 +24,9 @@ const NavBar = () => {
         <ul className="nav-links">
           <li className="nav-item">
             <a href="/">Home</a>
+          </li>{" "}
+          <li>
+            <a href="/chatpage">Chat</a>
           </li>
           <li className="nav-item">
             <a href="/log-in">Log-In</a>

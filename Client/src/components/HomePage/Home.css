@@ -1,0 +1,61 @@
+/* Home.css */
+
+/* Stil für die gesamte Landing Page */
+.landing-page {
+    font-family: Arial, sans-serif;
+    background: transparent; /* Hintergrundfarbe */
+    color: #fff; /* Textfarbe */
+    padding: 20px;
+    text-align: center;
+    height: 100vh; /* Volle Bildschirmhöhe */
+  }
+  
+  /* Stil für den Header */
+  .header {
+    padding: 40px;
+  }
+  
+  .header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+  }
+  
+  /* Stil für die Features-Sektion */
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .feature {
+    flex: 1;
+    padding: 20px;
+    border: 2px solid #007bff; /* Rahmenfarbe */
+    border-radius: 10px;
+    margin: 10px;
+  }
+  
+  .feature i {
+    font-size: 2rem;
+  }
+  
+  .feature h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .feature p {
+    font-size: 1.1rem;
+  }
+  
+  /* Stil für den Footer */
+  .footer {
+    padding: 20px;
+    font-size: 1rem;
+    background: #333; /* Hintergrundfarbe des Footers */
+  }
+  
