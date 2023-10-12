@@ -10,7 +10,7 @@ const port = 8000;
 app.use(express.json());
 app.use(cors());
 
-app.use("/accounts", accountsRouter);
+app.use("/:accounts", accountsRouter);
 
 app.use(errorHandler);
 
