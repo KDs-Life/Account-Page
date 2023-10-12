@@ -5,8 +5,8 @@ function Home() {
     <>
       <div className="landing-page">
         <header className="header">
-          <h1>Willkommen auf unserer futuristischen Landing Page</h1>
-          <p>Entdecken Sie die Zukunft noch heute!</p>
+          <h1>Willkommen</h1>
+          <p>Entdecken!</p>
         </header>
         <section className="features">
           <div className="feature">

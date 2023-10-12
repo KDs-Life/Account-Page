@@ -1,61 +1,90 @@
-/* Home.css */
-
-/* Stil für die gesamte Landing Page */
+/* Basisstile für alle Bildschirmgrößen */
 .landing-page {
-    font-family: Arial, sans-serif;
-    background: transparent; /* Hintergrundfarbe */
-    color: #fff; /* Textfarbe */
-    padding: 20px;
-    text-align: center;
-    height: 100vh; /* Volle Bildschirmhöhe */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  border-bottom: #008628 2px solid;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em; /* Ändere die Schriftgröße für den Basisstil */
+  margin: 0;
+}
+
+/* Header */
+.header {
+  padding: 40px;
+}
+
+.header h1 {
+  font-size: 2rem; /* Schriftgröße für den Header-Titel ändern */
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1rem; /* Schriftgröße für den Header-Text ändern */
+}
+
+/* Features-Sektion */
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+  font-size: 1.5em; /* Schriftgröße für die Features ändern */
+}
+
+.feature {
+  flex: 1;
+  padding: 20px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  margin: 10px; /* Ändere den Abstand zwischen den Features */
+  text-align: center;
+}
+
+.feature i {
+  font-size: 3rem; /* Schriftgröße für das Icon ändern */
+}
+
+.feature h2 {
+  font-size: 1.5rem; /* Schriftgröße für den Feature-Titel ändern */
+  margin: 10px 0;
+}
+
+.feature p {
+  font-size: 1rem; /* Schriftgröße für den Feature-Text ändern */
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  font-size: 0.8rem; /* Schriftgröße für den Footer ändern */
+  background: #333;
+}
+
+/* Media Queries für verschiedene Bildschirmgrößen */
+@media screen and (max-width: 768px) {
+  /* Stile für Geräte mit einer Bildschirmbreite von 768px oder kleiner */
+  .landing-page {
+    font-size: 0.8em; /* Schriftgröße für kleinere Bildschirme ändern */
   }
-  
-  /* Stil für den Header */
-  .header {
-    padding: 40px;
-  }
-  
+
   .header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem; /* Schriftgröße für kleinere Bildschirme ändern */
   }
-  
+
   .header p {
-    font-size: 1.2rem;
+    font-size: 0.9rem; /* Schriftgröße für kleinere Bildschirme ändern */
   }
-  
-  /* Stil für die Features-Sektion */
+
   .features {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    font-size: 1.2em; /* Schriftgröße für Features auf kleinen Bildschirmen ändern */
   }
-  
+
   .feature {
-    flex: 1;
-    padding: 20px;
-    border: 2px solid #007bff; /* Rahmenfarbe */
-    border-radius: 10px;
-    margin: 10px;
+    font-size: 1rem; /* Schriftgröße für Features auf kleinen Bildschirmen ändern */
   }
-  
-  .feature i {
-    font-size: 2rem;
-  }
-  
-  .feature h2 {
-    font-size: 1.5rem;
-    margin: 10px 0;
-  }
-  
-  .feature p {
-    font-size: 1.1rem;
-  }
-  
-  /* Stil für den Footer */
-  .footer {
-    padding: 20px;
-    font-size: 1rem;
-    background: #333; /* Hintergrundfarbe des Footers */
-  }
-  
+}
+
