@@ -11,7 +11,7 @@ const accountsRouter = express.Router();
 
 // Route: /accounts
 accountsRouter
-  .route("/accounts")
+  .route("/:accounts")
   .get(accountController.getAllAccounts) // GET-Anfrage ruft die Methode `getAllAccounts` im `accountController` auf
   .post(accountController.addNewAccount); // POST-Anfrage ruft die Methode `addNewAccount` im `accountController` auf
 
