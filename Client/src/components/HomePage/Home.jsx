@@ -12,7 +12,7 @@ function Home() {
           <div className="feature">
             <i className="fas fa-globe"></i>
             <h2>Weltweit</h2>
-            <p>Verbinden Sie sich mit Menschen auf der ganzen Welt.</p>
+            <p><a href="./"></a>Verbinden Sie sich mit Menschen auf der ganzen Welt.</p>
           </div>
           <div className="feature">
             <i className="fas fa-users"></i>

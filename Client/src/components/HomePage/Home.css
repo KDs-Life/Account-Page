@@ -1,90 +1,115 @@
 /* Basisstile für alle Bildschirmgrößen */
+
+
 .landing-page {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  border-bottom: #008628 2px solid;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1em; /* Ändere die Schriftgröße für den Basisstil */
-  margin: 0;
+  text-align: center;
+  min-width: 100%;
+  max-height: 100vh;
+
 }
 
 /* Header */
 .header {
-  padding: 40px;
+  padding: 1vw;
+  background: #333;
+  color: #fff;
+  text-align: center;
 }
 
 .header h1 {
-  font-size: 2rem; /* Schriftgröße für den Header-Titel ändern */
-  margin-bottom: 10px;
+  font-size: 3rem;
+  margin: 20px 0;
 }
 
 .header p {
-  font-size: 1rem; /* Schriftgröße für den Header-Text ändern */
+  font-size: 1.5rem;
+  margin: 20px 0;
 }
 
 /* Features-Sektion */
 .features {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
   flex-wrap: wrap;
-  padding: 20px;
-  font-size: 1.5em; /* Schriftgröße für die Features ändern */
+  justify-content: center;
+  align-items: stretch;
+  margin: 0;
+  color: #333;
+  text-align: center;
+
+  padding: 1vw;
+
 }
 
 .feature {
-  flex: 1;
-  padding: 20px;
-  border: 2px solid #007bff;
-  border-radius: 10px;
-  margin: 10px; /* Ändere den Abstand zwischen den Features */
+  flex: 1 1 300px;
+  padding: 1vw;
+  margin: 5vw;
+  background: #fff;
+  color: #333;
   text-align: center;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .feature i {
-  font-size: 3rem; /* Schriftgröße für das Icon ändern */
+  font-size: 4rem; 
 }
 
 .feature h2 {
-  font-size: 1.5rem; /* Schriftgröße für den Feature-Titel ändern */
-  margin: 10px 0;
+  font-size: 2rem; 
+  margin: 20px 0; 
 }
 
 .feature p {
-  font-size: 1rem; /* Schriftgröße für den Feature-Text ändern */
+  font-size: 1.2rem; 
 }
+
+.features:hover .feature {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+  
+}
+
 
 /* Footer */
 .footer {
-  padding: 20px;
-  font-size: 0.8rem; /* Schriftgröße für den Footer ändern */
+  padding: 1vw;
   background: #333;
+  color: #fff;
+  text-align: center;
 }
 
 /* Media Queries für verschiedene Bildschirmgrößen */
 @media screen and (max-width: 768px) {
-  /* Stile für Geräte mit einer Bildschirmbreite von 768px oder kleiner */
   .landing-page {
-    font-size: 0.8em; /* Schriftgröße für kleinere Bildschirme ändern */
+    font-size: 0.8em;
   }
 
   .header h1 {
-    font-size: 1.5rem; /* Schriftgröße für kleinere Bildschirme ändern */
+    font-size: 1.5rem;
   }
 
   .header p {
-    font-size: 0.9rem; /* Schriftgröße für kleinere Bildschirme ändern */
+    font-size: 0.9rem;
   }
 
   .features {
-    font-size: 1.2em; /* Schriftgröße für Features auf kleinen Bildschirmen ändern */
+    font-size: 1.2em;
   }
 
   .feature {
-    font-size: 1rem; /* Schriftgröße für Features auf kleinen Bildschirmen ändern */
+    font-size: 1rem;
   }
 }
-
