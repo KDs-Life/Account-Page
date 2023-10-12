@@ -81,15 +81,16 @@ function CreateAccount({ setAccounts, isLoggedIn, toggleLogin }) {
               onChange={handleChange}
               placeholder="Image URL"
             />
-
-            {isLoggedIn ? (
-              <button type="button" onClick={toggleLogin}>
-                Logout
-              </button>
-            ) : (
-              <button type="submit">Create Account</button>
-            )}
-          </form>
+          </form>{" "}
+          <div className="account-btn">
+          {isLoggedIn ? (
+            <button type="button" onClick={toggleLogin}>
+              Logout
+            </button>
+          ) : (
+            <button type="submit">Create Account</button>
+          )}
+          </div>
         </div>
         <div className="middle"></div>
         <div className="right">

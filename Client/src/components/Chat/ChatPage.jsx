@@ -1,4 +1,5 @@
 import ChatWindow from "../Chat/ChatWindow";
+import "./ChatPage.css";
 
 function ChatPage() {
   return (
