@@ -7,14 +7,14 @@ const accountSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Name is required"],
-    unique: true, // Jeder Name sollte einmalig sein.
+    unique: false, // Jeder Name sollte einmalig sein.
     trim: true, // Wir entfernen Leerzeichen am Anfang und Ende des Namens.
   },
   // Der Vorname
   family_name: {
     type: String,
     required: [true, "family_name is required"],
-    unique: true, // Jeder Vorname sollte einmalig sein.
+    unique: false, // Jeder Vorname sollte einmalig sein.
     trim: true, // Wir entfernen Leerzeichen am Anfang und Ende des Vornamens.
   },
   // Das Passwort wird hinzugefügt und zensiert.
