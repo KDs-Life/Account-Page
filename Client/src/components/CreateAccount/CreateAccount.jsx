@@ -3,10 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import "./CreateAccount.css";
 
-function CreateAccount({ setAccounts }) {
+function CreateAccount({ setAccounts, isLoggedIn, toggleLogin }) {
   const [newAccount, setNewAccount] = useState({
     name: "",
-    first_name: "",
+    family_name: "",
     email: "",
     password: "",
     image: "",
@@ -15,14 +15,14 @@ function CreateAccount({ setAccounts }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://account-page.onrender.com/accounts", newAccount) // Ersetze "DEINE_API_URL_HIER" durch die richtige URL
+      .post("https://account-page.onrender.com/accounts", newAccount)
       .then((response) => {
         console.log("Great:", response.data);
         alert("New Account created, welcome Hero!");
         setAccounts((prevAccounts) => [...prevAccounts, response.data]);
         setNewAccount({
           name: "",
-          first_name: "",
+          family_name: "",
           email: "",
           image: "",
         });
@@ -43,22 +43,22 @@ function CreateAccount({ setAccounts }) {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="name"
-              value={newAccount.name}
+              name="first_name"
+              value={newAccount.first_name}
               onChange={handleChange}
               placeholder="Name"
               required
             />
             <input
               type="text"
-              name="first_name"
-              value={newAccount.first_name}
+              name="family_name"
+              value={newAccount.family_name}
               onChange={handleChange}
-              placeholder="First Name"
+              placeholder="Family Name"
               required
             />
             <input
-              type="email" // Ändern Sie den Typ auf "email", um die Eingabe als E-Mail zu validieren
+              type="email"
               name="email"
               value={newAccount.email}
               onChange={handleChange}
@@ -82,13 +82,17 @@ function CreateAccount({ setAccounts }) {
               placeholder="Image URL"
             />
 
-            <button type="submit">Create Account</button>
+            {isLoggedIn ? (
+              <button type="button" onClick={toggleLogin}>
+                Logout
+              </button>
+            ) : (
+              <button type="submit">Create Account</button>
+            )}
           </form>
         </div>
-        <div className="middle"></div> {/* LINE */}
+        <div className="middle"></div>
         <div className="right">
-          {/* Bild oder Ihre Animation einfügen */}
-          {/* Zum Beispiel: */}
           <img src="https://picsum.photos/id/237/536/354" alt="Your Image" />
         </div>
       </div>
