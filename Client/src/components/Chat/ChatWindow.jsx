@@ -18,7 +18,8 @@ function ChatWindow() {
         Someone: "Hallo s, was hast du vor?",
         "Master of the Universe": "Hallo Spiderman & Khalid, was geht?",
         "Son Goku": "Hallo, ich bin Son Goku! Freut mich euch kennenzulernen!,",
-        // Füge hier weitere Benutzer hinzu und definiere ihre Nachrichten
+        Vegeta: "Kakarott, du bist ein Idiot!!!",
+        Batman: "Ich bin Batman....!",
       };
 
       const messages = users.map((user) => ({

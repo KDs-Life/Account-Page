@@ -11,9 +11,9 @@ const accountSchema = new mongoose.Schema({
     trim: true, // Wir entfernen Leerzeichen am Anfang und Ende des Namens.
   },
   // Der Vorname
-  first_name: {
+  family_name: {
     type: String,
-    required: [true, "First Name is required"],
+    required: [true, "family_name is required"],
     unique: true, // Jeder Vorname sollte einmalig sein.
     trim: true, // Wir entfernen Leerzeichen am Anfang und Ende des Vornamens.
   },
