@@ -6,7 +6,7 @@ function ChatWindow() {
   const [newMessage, setNewMessage] = useState("");
   const [chatMessages, setChatMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
-  const chatWindowRef = useRef(null);
+  const chatWindowRef = useRef();
 
   useEffect(() => {
     axios.get("https://account-page.onrender.com/accounts").then((response) => {

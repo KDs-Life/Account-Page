@@ -1,4 +1,5 @@
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -22,20 +23,20 @@ const NavBar = () => {
           </svg>
         </div>
         <ul className="nav-links">
-          <li className="nav-item">
-            <a href="/">Home</a>
-          </li>{" "}
-          <li>
-            <a href="/chatpage">Chat</a>
-          </li>
-          <li className="nav-item">
-            <a href="/log-in">Log-In</a>
-          </li>
-          <li className="nav-item">
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+        <li className="nav-item">
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/chatpage">Chat</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/log-in">Log-In</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/contact">Contact</Link>
+        </li>
+      </ul>
+    </nav>
     </>
   );
 };
