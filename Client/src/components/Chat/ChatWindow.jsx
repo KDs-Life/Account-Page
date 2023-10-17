@@ -131,6 +131,7 @@ function ChatWindow() {
     updatedMessages.push({
       user: randomUser,
       message: responseMessage,
+      avatar: chatMessages.find((message) => message.user === randomUser).avatar,
     });
 
     setChatMessages(updatedMessages);
