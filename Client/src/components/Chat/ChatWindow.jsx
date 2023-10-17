@@ -3,15 +3,16 @@ import axios from "axios";
 import "./ChatWindow.css";
 
 function ChatWindow() {
-  const [newMessage, setNewMessage] = useState("");
-  const [chatMessages, setChatMessages] = useState([]);
-  const [isTyping, setIsTyping] = useState(false);
-  const chatWindowRef = useRef();
+  const [newMessage, setNewMessage] = useState(""); // Zustand für die neue Nachricht
+  const [chatMessages, setChatMessages] = useState([]); // Zustand für alle Chat-Nachrichten
+  const [isTyping, setIsTyping] = useState(false); // Zustand für die Anzeige des Tippens
+  const chatWindowRef = useRef(); // Referenz für das Chat-Fenster
 
   useEffect(() => {
     axios.get("https://account-page.onrender.com/accounts").then((response) => {
-      const users = response.data;
-      // Erstelle ein Mapping für Benutzer-spezifische Nachrichten
+      const users = response.data; // Benutzerdaten aus der API-Antwort
+
+      // Erstelle ein Mapping für Benutzer-spezifische Nachrichten (Hardcoded für die Demo )
       const userSpecificMessages = {
         Khalid: "Hallo Leute, wie geht's?",
         Spiderman: "Hey He-Man und Chat, bereit für Abenteuer?",
@@ -20,8 +21,10 @@ function ChatWindow() {
         "Son Goku": "Hallo, ich bin Son Goku! Freut mich euch kennenzulernen!,",
         Vegeta: "Kakarott, du bist ein Idiot!!!",
         Batman: "Ich bin Batman....!",
+        "Timo-the-Disaster":
+          "ICH ZERSTÖRE EUCH ALLE!!! MENSCHEN... WIDERWERTIGE WESEN!!!!",
       };
-
+      // Erstelle eine Liste von Nachrichten, die wir im Chat-Fenster anzeigen werden
       const messages = users.map((user) => ({
         user: user.name,
         message: userSpecificMessages[user.name] || getRandomResponse(),
@@ -29,9 +32,11 @@ function ChatWindow() {
       }));
       setChatMessages(messages);
     });
-  }, []);
+  }, []); // Leerer Abhängigkeitsarray, diese Funktion wird nur einmal beim Laden der Komponente aufgerufen
 
   const getRandomResponse = () => {
+    // Zufällige Antwort aus einer vordefinierten Liste auswählen.
+    // Diese Liste kann beliebig erweitert werden.
     const responses = [
       "Mit großer Macht kommt große Verantwortung.",
       "Ich bin Groot.",
@@ -143,31 +148,39 @@ function ChatWindow() {
   };
 
   const handleSendMessage = () => {
-    if (newMessage.trim() === "") return;
+    if (newMessage.trim() === "") return; // Nachricht darf nicht leer sein.
 
     const updatedMessages = [
       ...chatMessages,
       { user: "Du", message: newMessage },
     ];
 
+    // Zufälligen Benutzer auswählen, der antworten wird
+    // Wir wählen einen zufälligen Benutzer aus der Liste der Benutzer aus, die bereits eine Nachricht gesendet haben.
     const users = chatMessages.map((message) => message.user);
+    // Wir entfernen den Benutzer "Du" aus der Liste, da wir nicht wollen, dass der Benutzer auf seine eigene Nachricht antwortet.
     const randomUser = users[Math.floor(Math.random() * users.length)];
+    // Wir wählen eine zufällige Antwort aus der Liste der vordefinierten Antworten aus.
     const responseMessage = getRandomResponse();
 
+    // Neue Nachricht hinzufügen,
+    //eine zufällige Antwort erstellen und Zustände aktualisieren
     updatedMessages.push({
       user: randomUser,
       message: responseMessage,
+      // Wir fügen das Avatar-Feld hinzu,
+      //um das Avatar-Bild des Benutzers anzuzeigen, der die Nachricht sendet.
       avatar: chatMessages.find((message) => message.user === randomUser)
         .avatar,
     });
 
-    setChatMessages(updatedMessages);
-    setNewMessage("");
-    setIsTyping(true);
+    setChatMessages(updatedMessages); // Chat-Nachrichten aktualisieren
+    setNewMessage(""); // Neue Nachricht leeren
+    setIsTyping(true); // Anzeigen, dass jemand tippt
 
     setTimeout(() => {
-      setIsTyping(false);
-    }, 2000);
+      setIsTyping(false); // Anzeigen, dass jemand tippt
+    }, 4000); // Nach 4 Sekunden aufhören, das Tipp-Indikator anzuzeigen
   };
 
   useEffect(() => {
@@ -175,8 +188,9 @@ function ChatWindow() {
   }, [chatMessages]);
 
   const handleKeyPress = (e) => {
+    // Wenn die Eingabetaste gedrückt wird, sende die Nachricht
     if (e.key === "Enter") {
-      handleSendMessage();
+      handleSendMessage(); // Nachricht senden
     }
   };
 
