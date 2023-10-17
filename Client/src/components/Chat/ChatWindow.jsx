@@ -8,6 +8,29 @@ function ChatWindow() {
   const [isTyping, setIsTyping] = useState(false);
   const chatWindowRef = useRef();
 
+  useEffect(() => {
+    axios.get("https://account-page.onrender.com/accounts").then((response) => {
+      const users = response.data;
+      // Erstelle ein Mapping für Benutzer-spezifische Nachrichten
+      const userSpecificMessages = {
+        Khalid: "Hallo Leute, wie geht's?",
+        Spiderman: "Hey He-Man und Chat, bereit für Abenteuer?",
+        Someone: "Hallo s, was hast du vor?",
+        "Master of the Universe": "Hallo Spiderman & Khalid, was geht?",
+        "Son Goku": "Hallo, ich bin Son Goku! Freut mich euch kennenzulernen!,",
+        Vegeta: "Kakarott, du bist ein Idiot!!!",
+        Batman: "Ich bin Batman....!",
+      };
+
+      const messages = users.map((user) => ({
+        user: user.name,
+        message: userSpecificMessages[user.name] || getRandomResponse(),
+        avatar: user.image, // Hier fügen wir das Avatar-Feld hinzu
+      }));
+      setChatMessages(messages);
+    });
+  }, []);
+
   const getRandomResponse = () => {
     const responses = [
       "Mit großer Macht kommt große Verantwortung.",
@@ -122,7 +145,10 @@ function ChatWindow() {
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return;
 
-    const updatedMessages = [...chatMessages, { user: "Du", message: newMessage }];
+    const updatedMessages = [
+      ...chatMessages,
+      { user: "Du", message: newMessage },
+    ];
 
     const users = chatMessages.map((message) => message.user);
     const randomUser = users[Math.floor(Math.random() * users.length)];
@@ -131,7 +157,8 @@ function ChatWindow() {
     updatedMessages.push({
       user: randomUser,
       message: responseMessage,
-      avatar: chatMessages.find((message) => message.user === randomUser).avatar,
+      avatar: chatMessages.find((message) => message.user === randomUser)
+        .avatar,
     });
 
     setChatMessages(updatedMessages);
@@ -153,27 +180,13 @@ function ChatWindow() {
     }
   };
 
-  useEffect(() => {
-    axios.get("https://account-page.onrender.com/accounts").then((response) => {
-      const users = response.data;
-      const messages = users.map((user) => ({
-        user: user.name,
-        message: getRandomResponse(),
-        avatar: user.image,
-      }));
-
-      setChatMessages(messages);
-    });
-  }, []);
-
   return (
     <>
       <div className="chat" ref={chatWindowRef}>
         {chatMessages.map((message, index) => (
           <div
             key={index}
-            className={`user-info ${message.user === "Du" ? "mine" : "yours"}`}
-          >
+            className={`user-info ${message.user === "Du" ? "mine" : "yours"}`}>
             <img src={message.avatar} alt="Avatar" />
             <div className="user-name">{message.user}</div>
             <div className="user-messages">
